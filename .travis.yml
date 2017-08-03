@@ -4,12 +4,10 @@ dist: trusty
 language: php
 
 addons:
-  sonarqube: true
-
-#sonarcloud:
-  #organization: "Tainacan"
-  #token:
-    #secure: U0FT1Aycv32zL8FUoqB/WTFYA/fEaZpITy3Ng9mIp/w2JjwQKNSxg4DvkTAXdSEMi7SDxLp1MbLvJsggO5Wki/5RuN6QaqDx1SGRC6vq2kDez0adKTZeP0sRIS/7a+aUe+ODfgd/f9AFXm6LzJ2JsZ/M8SZx0+Mzb0XA0OC6F2ZwRs25NguoT+gXQ39AnI41V4wcKEacl9jCA02sZv976CuCI1aFj2Dk+qHav1g5i+FdPy+wcSd8uY3yNMp813gJWZZHRpTvj8euyCVMb89GhAUGPKD/+qgBbMVmItXYePzTQQPp8iJF9nmMqWDqT9q4MW0pWlMyKyQZOWTadwnM2E+P2UeTQIoXY56kHxBQqrOS/2rgPiwAPSEMRI6L7VolQyKLjWyKGlpsScjw4dPckR/zU40CynKewqafCtCV8WwzmxxkTydJCDrL25CZ/PNPXFyYE6USI8ulW+OmVOVc7deQldu4q7rRqzo8SjBCJt6nIEslKuQ9NaUJDG6zcEjuTHuDQ3UjepuA9GMNBjS0SN2wj+jpl3XN4SbUndEWjCvlCTcyh+p3LDoDtOdOe+F+jKFb3vsTrHY6WbWPIT3fz4W/WbNCB2mZW7hEQ8CWx6vXWsinPY0cJ7WC4xN7+k8dlxUPb4glpS/XcM/5FvJCZi3a6jaSDiGb5aVzRrsz3jA=
+  sonarcloud:
+    organization: "Tainacan"
+    token:
+      secure: U0FT1Aycv32zL8FUoqB/WTFYA/fEaZpITy3Ng9mIp/w2JjwQKNSxg4DvkTAXdSEMi7SDxLp1MbLvJsggO5Wki/5RuN6QaqDx1SGRC6vq2kDez0adKTZeP0sRIS/7a+aUe+ODfgd/f9AFXm6LzJ2JsZ/M8SZx0+Mzb0XA0OC6F2ZwRs25NguoT+gXQ39AnI41V4wcKEacl9jCA02sZv976CuCI1aFj2Dk+qHav1g5i+FdPy+wcSd8uY3yNMp813gJWZZHRpTvj8euyCVMb89GhAUGPKD/+qgBbMVmItXYePzTQQPp8iJF9nmMqWDqT9q4MW0pWlMyKyQZOWTadwnM2E+P2UeTQIoXY56kHxBQqrOS/2rgPiwAPSEMRI6L7VolQyKLjWyKGlpsScjw4dPckR/zU40CynKewqafCtCV8WwzmxxkTydJCDrL25CZ/PNPXFyYE6USI8ulW+OmVOVc7deQldu4q7rRqzo8SjBCJt6nIEslKuQ9NaUJDG6zcEjuTHuDQ3UjepuA9GMNBjS0SN2wj+jpl3XN4SbUndEWjCvlCTcyh+p3LDoDtOdOe+F+jKFb3vsTrHY6WbWPIT3fz4W/WbNCB2mZW7hEQ8CWx6vXWsinPY0cJ7WC4xN7+k8dlxUPb4glpS/XcM/5FvJCZi3a6jaSDiGb5aVzRrsz3jA=
 
 php:
 - 7.0
@@ -28,7 +26,7 @@ matrix:
 
 script:
 - phpunit --configuration phpunit_$DB.xml --coverage-text
-- sonar-scanner -X -Dsonar.host.url=https://sonarqube.com -Dsonar.login=$SONAR_TOKEN
+- sonar-scanner
 
 cache:
   directories:
