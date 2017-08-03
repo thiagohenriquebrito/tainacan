@@ -1,8 +1,7 @@
-language: php
-
+sudo: false
 dist: trusty
 
-sudo: required
+language: php
 
 sonarcloud:
   organization: "Tainacan"
@@ -26,7 +25,12 @@ matrix:
 
 script:
 - phpunit --configuration phpunit_$DB.xml --coverage-text
+# - sonar-scanner -X -Dsonar.host.url=https://sonarqube.com -Dsonar.login=$SONAR_TOKEN
 - sonar-scanner
+
+cache:
+  directories:
+    - '$HOME/.sonar/cache'
 
 notifications:
   email: false
