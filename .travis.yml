@@ -3,19 +3,12 @@ dist: trusty
 
 language: php
 
-addons:
-
 php:
 - 7.0
 - hhvm
 
-env:
-
-
 after_success:
-    "curl --ftp-create-dirs -T uploadfilename -u $FTP_USER:$FTP_PASSWORD $URL"
-    
-    
+
 matrix:
   exclude:
     - php: hhvm
@@ -25,6 +18,7 @@ matrix:
   fast_finish: true
 
 script:
-
+    "curl --ftp-create-dirs -T uploadfilename -u $FTP_USER:$FTP_PASSWORD $URL"
+    
 notifications:
   email: false
