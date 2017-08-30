@@ -38,5 +38,5 @@ nbdist/
 ### Sonar ###
 #Sonar generated dir
 /.sonar/
-
-# End of https://www.gitignore.io/api/data,sass,sonar,netbeans,composer
+.scannerwork
+/.scannerwork

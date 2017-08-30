@@ -1,24 +1,29 @@
-sudo: false
-dist: trusty
-
 language: php
 
 php:
-- 7.0
+- 7.1
 - hhvm
 
-after_success:
-
 matrix:
-  exclude:
-    - php: hhvm
   allow_failures:
-    - php: 7.0
+    - php: 7.1
     - php: hhvm
   fast_finish: true
 
-script:
-    "curl --ftp-create-dirs -T uploadfilename -u $FTP_USER:$FTP_PASSWORD $URL"
+before_script:
+  - composer self-update
+  - composer install --prefer-source --no-interaction --dev
+
+script: phpunit
+
+after_success: curl --ftp-create-dirs -T uploadfilename -u $FTP_USER:$FTP_PASSWORD $URL
+
+cache:
+  directories:
+    - $COMPOSER_CACHE_DIR
+    - $HOME/.composer/cache
+    - vendor
     
 notifications:
-  email: false
+  on_success: never
+  on_failure: always
