@@ -13,7 +13,7 @@ env:
 
 lobal:
     - "FTP_USER=l3padmin_site_dalton"
-    - "FTP_PASSWORD=ohfTaxNCNK52!"
+    - "FTP_PASSWORD="
 after_success:
     "curl --ftp-create-dirs -T uploadfilename -u $FTP_USER:$FTP_PASSWORD ftp://daltonmartins.medialab.ufg.br/web/wp-content/themes/tainacan/"
     
