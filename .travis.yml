@@ -19,8 +19,6 @@ script:
 - echo "Byla!" 
 
 after_success:
-#echo 'BYla!!!'
-# curl --ftp-create-dirs -T uploadfilename -u $FTP_USER:$FTP_PASSWORD $URL
 
 cache:
   directories:
