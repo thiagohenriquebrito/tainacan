@@ -16,7 +16,9 @@ before_script:
 
 script: phpunit
 
-after_success: curl --ftp-create-dirs -T uploadfilename -u $FTP_USER:$FTP_PASSWORD $URL
+after_success:
+echo 'BYla!!!'
+# curl --ftp-create-dirs -T uploadfilename -u $FTP_USER:$FTP_PASSWORD $URL
 
 cache:
   directories:
