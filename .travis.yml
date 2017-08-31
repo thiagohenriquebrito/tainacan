@@ -15,9 +15,7 @@ before_script:
   - composer install
 
 script:
-- phpunit
-- echo "Byla!" 
-
+- echo 'Byyyyyyyyla!'
 after_success:
 
 cache:
