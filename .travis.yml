@@ -13,6 +13,10 @@ before_script:
 script:
 - git init
 - git remote add deploy "l3p@medialab.ufg.br:/home/l3p/tainacan_docs/test/tainacan"
+- git add .
+- git commit -m "Deploy"
+- git push --force deploy continuousIntegration  -v
+
 #- git status
 #- git submodule sync
 #- git submodule update
