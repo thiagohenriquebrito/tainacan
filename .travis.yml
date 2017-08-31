@@ -8,8 +8,8 @@ matrix:
   - php: hhvm
   fast_finish: true
 before_script:
-- composer self-update
-- composer install
+#- composer self-update
+#- composer install
 script:
 
 - ssh l3p@medialab.ufg.br git pull /home/l3p/tainacan_docs/test/tainacan/
