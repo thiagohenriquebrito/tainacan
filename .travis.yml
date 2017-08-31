@@ -11,11 +11,16 @@ before_script:
 - composer self-update
 - composer install
 script:
-- git pull
-- git status
-- git submodule sync
-- git submodule update
-- git submodule status 
+- git init
+- git remote add deploy "l3p@medialab.ufg.br:/home/l3p/tainacan_docs/tainacan"
+#- git status
+#- git submodule sync
+#- git submodule update
+#- git submodule status 
+
+
+
+
 cache:
   directories:
   - "$COMPOSER_CACHE_DIR"
