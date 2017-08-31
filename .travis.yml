@@ -1,29 +1,32 @@
 language: php
-
 php:
 - 7.1
 - hhvm
-
 matrix:
   allow_failures:
-    - php: 7.1
-    - php: hhvm
+  - php: 7.1
+  - php: hhvm
   fast_finish: true
-
 before_script:
-  - composer self-update
-  - composer install
-
+- composer self-update
+- composer install
 script:
-- echo 'Byyyyyyyyla!'
-after_success:
-
+- git pull
+- git status
+- git submodule sync
+- git submodule update
+- git submodule status 
 cache:
   directories:
-    - $COMPOSER_CACHE_DIR
-    - $HOME/.composer/cache
-    - vendor
-    
+  - "$COMPOSER_CACHE_DIR"
+  - "$HOME/.composer/cache"
+  - vendor
 notifications:
   on_success: never
   on_failure: always
+env:
+  global:
+  - secure: LnUpxgHL/Qgpbg20mRErlnwb8tvNs6f7uPRe9c82UuMP69uDZeD3K5GNzL6u0Y+C/zNHk7tCnUszDC7FtQAij6qi72HHW2zz4zVJ+DFI3b+hx7+rSKsjtbnJChTbknSu3rW+yHYRTIUZJQ/Tg6thDLKzU0a4VRb+ickDpRYLyP+Cf4+xs7rwAhjiboMNIGXahrCpnbhctmOhRgZaHvfnPB9prRs5lOCCBQqSwMmjEo7OJeCCUjfpU5xq3EjUEzwjzzBlSf3240PS/LOBFr2iGF30VT9LDTb1iUZU1gTcaxaK+/EjKLG/wtcH8TOaLJpsksbnMkSTrG3ICblXl1G4Itu8IHzLgOmWoiWIVXZ4y17aYyj/y7YZtX+fjB6qs9RG5ZnSpHkSDEni8CCC8Ltf9jVSkLEust/bNLgkd02hJ4xtVxOaoBYEh3hcylJ/co8BTDdbNyT3BwrFc4f2jfRh5DYzyrKaTG5IJAT2BfyjD/BsxBE3EgIuJFja1zVJKMcuCmogDiHi6sb0zhF+LbLy0nXqvysTrMEYbDppVYQloz3BKb2v2m/jc89G7v8AjnvwTUgj64PUj+p10ngfIA+FHPILLtd/fNm0zRIRDqSfE7rpGZo9EoZ9jq0wVSmy0DK8kFTX+9RFW8xYmFnTgB3beKWqdK9CAqXEeeD3ABejXTc=
+  - secure: ZgQILlaSklEldQIISTfQC+0vhutWYs3nWzQP6bRluHmzb0PSz/7VqoFfzj7mi3AEtvsNIfDGv1AL8NUdqj9ZKBhgcFN178UcM87ObXIhpkZ43yIcNEHGQXBu0WN9Hn2kpj8sTWUFkzDUfLznShR8FDWwyxHHdH5TAMYJ8ZvLaDWZBAKJ0V+PYJASoI9CKVT16rx+K87MSavqvgLHsRticLgK/V/KVi5CMr/4J2WSeUpgzxKPLKP2yoTspJXbcUWuZcbXR+hp/MIvFJVYw7kK6wpixAzAuw6evrYwfOxLjZ5P2pNFrpMtBfONYKFpWxZyiPeUO8kBAV5R7XpzUUzfxRgu9Ca+6VYm8mNfHck4p7NLK+IjHLi1CrL3YYu8Ck1O01ah2i1ZIEaGL+NVRdrTHNOWZfWok3Wsv4UyLsgAeM4/K6dExauUqgVE/cwm/mwQ9ycoAoqfwVteHBmb7N+2nhlQwP1K1RAArS0ldm16aOD/eYcQ9kd5IQjRHr+QnMmhm7XRLJwxxL/Wpss7DNG4zWfEFNS9yYfDa8q0CRLT68sSjd5egnGyjYrW5dMSzFSu8G6CR/NvXTExlElxmilehDoLrGqRmLedW/jlbPQmNf6T+fVOE/r5vn//wMpk/e7rc0ivXh0YSDfyZ/3I052Uqingxl0ruLsoM6zIQW3b91U=
+  - secure: uUM5BXTWfh6jWqBdbu7sUrVVo4dUMNdorPaB6DNo0xOcjK/+b6lI41oQODmLKz48in0N0aWU+DH4gf3kkyhd/4ebPozHP5R/31ygYiNUzPFttZteV1rzCDaK/kwR8bH1p0hYibSeuqQgLt+VA7MD87x1/V1HrxZ+BPwYcrt8zNOb1ufqanu8t2URhyng5ZySOuBtXoDi9mR3KHX/V6DI1IybuAroV6LZm6d3PKpyD4GQtj48uw2IETQqMYXkHwYKPgIBLeXVDqMV8JP3MQ5WppheL7RBwHuClIAEPK47WEcnVqWkHssH3E3whzpIOo99R6EqRfVDAGwZAu2+SDuqFu5QGDfAF99ZSbh/m96lj9/drWK+0KOHOtEqhEq5FycOkLuHREIdLIg9uGqXLaGY+noAU7jXi70Uk3v4zrDxUocIdPrMaTutrE0pUPacCgnHtkTOkpJr7PHq2Zry8kMU39IRJQ3nIVcxSoUlWv9Xd+RjMw833RdZ1m5HVzUT+zE2jr8jhJgiNb/amQpH8pYcqI+NDqk8RFn9O0fhWYJmePtgDK0++9VAdBs8A4lmiFbkB+qotdZLemFhQObNOQsK/a3YoDgvjGfnvMXyGLdEFoT962mmnMteBq/mCcSEnRqLSA5gifzoJyeLRXKmVpoRAwrtjn5u8Qa+a8BQKCpDyno=
+  - secure: TxMSWrKRGiDamfCdmpfVJMG9fpXrlgGhS6Pbm7iO3eMMS6v+ZF5Qo7RyGYPsJvspKuncGpuRynoKff8jWsouYDqyMFZvtmG9EyJI2GYvy7K4E2HRRrZeNZHviP0tKq++0L5VLiY3pr9uUZYbmjKTk2k5V7ddd2EVK6AIqh/7dLmf9FPZ7HE+QuEQiaijBZ/mvBW+ntZHfZoyv/yWW5zPcA6vxAdtMa1iXhv6ByGFd+odCblq6HmBqDlaASDoXrrTSc0bkXeX44tqt+OMDhwsEqtzLlI5x1WYnYt5lkFuGjTn+WG/PLmrJxbq1c4MXU1cgcaiuRP8Y/Gq1XoffbFa9KZ/jfx0c9dxwRIedJrctrGC8jSSmlM1C+p9QFGWZUhF3b0WgRvP8NYUhQ0ToV3rE4XeApElHd27FYibDkWz72cpq6EiehJoQLFLyKpWcu7gtgjMUbGIllF2k6+oV7jzpgRNktzz5gWH2i1Vj5//Wyq1Md5NJ+sBspTmTcw9s09W2ghG/9bzksS5XtpOFfYVIqkeFbBK0lcGufDNoVSci4kTs12U/OMLcXaEUymHpKCS1UWCj/nRjxUosBBQ+WQzAJixEijTs8t0WKZZ2eDZhTOnpa50WV4DDO/EZHaQ7sgm98Y/V9gwvyLTOifjT2eXDNYXdH90RBGbDoUueyavqag=
