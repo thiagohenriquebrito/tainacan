@@ -12,7 +12,7 @@ before_script:
 - composer install
 script:
 - git init
-- git remote add deploy "l3p@medialab.ufg.br:/home/l3p/tainacan_docs/tainacan"
+- git remote add deploy "l3p@medialab.ufg.br:/home/l3p/tainacan_docs/test/tainacan"
 #- git status
 #- git submodule sync
 #- git submodule update
