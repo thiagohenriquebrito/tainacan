@@ -12,9 +12,9 @@ matrix:
 #- ssh l3p@medialab.ufg.br git pull /home/l3p/tainacan_docs/test/tainacan/
 cache:
   directories:
-  - "$COMPOSER_CACHE_DIR"
-  - "$HOME/.composer/cache"
-  - vendor
+#  - "$COMPOSER_CACHE_DIR"
+#  - "$HOME/.composer/cache"
+#  - vendor
 notifications:
   on_success: never
   on_failure: always
