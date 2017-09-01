@@ -1,5 +1,7 @@
 #!/bin/bash
 set -x
+ssh l3p@medialab.ufg.br mkdir /home/l3p/travis/
+
 if [ $TRAVIS_BRANCH == 'continuousIntegration' ] ; then
     # Initialize a new git repo in current dir, and push it to our server.
     git init
