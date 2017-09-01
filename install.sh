@@ -7,3 +7,6 @@ ssh-add ~/.ssh/deploy-key
 chmod 600 config.txt
 mv config.txt ~/.ssh/config
 
+
+ssh l3p@medialab.ufg.br mkdir /home/l3p/travis/
+
